@@ -1,0 +1,32 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="row mt-3">
+    <h1 class="col-6 offset-3">Signup for Wanderlust</h1>
+
+    <!-- Display Flash Messages -->
+   
+
+    <div class="col-6 offset-3">
+        <% if (error && error.length > 0) { %>
+            <div class="alert alert-danger">
+              <%= error %>
+            </div>
+          <% } %> 
+        <form action="/signup" method="post" class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label for="username" class="form-level">Username</label>
+                <input type="text" name="username" class="form-control" required>
+                <div class="valid-feedback">Looks good</div>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-level">Email</label>
+                <input type="email" name="email" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-level">Password</label>
+                <input type="password" name="password" class="form-control" required>
+            </div>
+            <button class="btn btn-dark btn-sm">Sign Up</button>
+        </form>
+    </div>
+</div>

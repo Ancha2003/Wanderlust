@@ -1,0 +1,63 @@
+<% layout('layouts/boilerplate') %>
+<div class="row">
+  <div class="col-8 offset-2">
+    <h3>Edit your Listing</h3>
+
+    <!-- FIX: Added enctype="multipart/form-data" -->
+    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" enctype="multipart/form-data" class="needs-validation">
+      
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control" required />
+      </div>
+
+      <br /><br />
+
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea name="listing[description]" class="form-control" required><%= listing.description %></textarea>
+      </div>
+
+      <br /><br />
+
+      <!-- File Upload Input -->
+      <div class="mb-3">
+        <label for="image" class="form-label">Upload New Image</label>
+        <input name="listing[image]" type="file" class="form-control" />
+      </div>
+
+      <!-- Show Current Image -->
+      <div class="mb-3">
+        <label>Current Image:</label><br>
+        <img src="<%= listing.image.url %>" alt="Current Image" style="width:200px; border-radius:10px;">
+      </div>
+
+      <br /><br />
+
+      <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input name="listing[price]" value="<%= listing.price %>" type="number" class="form-control" required />
+      </div>
+
+      <br /><br />
+
+      <div class="mb-3">
+        <label for="country" class="form-label">Country</label>
+        <input name="listing[country]" value="<%= listing.country %>" type="text" class="form-control" required />
+      </div>
+
+      <br /><br />
+
+      <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input name="listing[location]" value="<%= listing.location %>" type="text" class="form-control" required />
+      </div>
+
+      <br /><br />
+
+      <button class="btn btn-dark mt-3 edit-btn">Edit</button>
+    </form>
+  </div>
+</div>
+
+<script src="/js/script.js"></script>
